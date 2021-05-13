@@ -71,6 +71,24 @@
       "workOrderLevel": "",
       "houseArea": 0,
       "constructionCost": 0
+    },
+    {
+      "id": "HcmvrmD",
+      "year": "2006",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": 0,
+      "constructionCost": 0
+    },
+    {
+      "id": "q-IqGwx",
+      "year": "2007",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "2",
+      "constructionCost": "20"
     }
   ]
 }
