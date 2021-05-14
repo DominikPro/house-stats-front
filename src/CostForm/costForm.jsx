@@ -1,6 +1,7 @@
 import { React, useState, createRef } from "react";
-import axios from 'axios';
-import { year, voivodships, stateOfConstructionOptions, workOrderLevel } from "./dataForm"
+import checkForm from "../actions/checkForm";
+import sendToDB from "../actions/sendToDB";
+import { year, voivodships, stateOfConstructionOptions, workOrderLevel } from "./dataForm";
 
 const CostForm = () => {
   const [emptyFormData, setEmptyFormData] = useState({
@@ -55,53 +56,13 @@ const CostForm = () => {
     console.log(formData);
   };
 
-  const sendToDb = () => {
-    if (formData.info.year === "" || formData.info.year <= 0) {
-      return alert("Sprawdź czy poprawnie uzupełniłeś pole -  Rok rozpoczecia budowy")
-    }
-    else if (formData.info.voivodeship === "") {
-      return alert("Sprawdź czy poprawnie uzupełniłeś pole -  Województwo gdzie prowadzona jest inwestycja")
-    }
-    else if (formData.info.workStage === "" || formData.info.workStage <= 0) {
-      return alert("Sprawdź czy poprawnie uzupełniłeś pole -  Stan robót")
-    }
-    else if (formData.info.workOrderLevel === "" || formData.info.workStage <= 0) {
-      return alert("Sprawdź czy poprawnie uzupełniłeś pole -  Poziom zlecanych prac")
-    }
-    else if (formData.info.houseArea <= 0 || formData.info.houseArea>400 ) {
-      return alert("Sprawdź czy poprawnie uzupełniłeś pole - Całkowita powierzchnia domu - wraz z garażem i piwnicą")
-    }
-    else if (formData.info.constructionCost <= 0 || formData.info.constructionCost<10000 ) {
-      return alert("Sprawdź czy poprawnie uzupełniłeś pole - Całkowity koszt budowy brutto")
-    }
-    else {
-
-      axios({
-        method: 'post',
-        url: 'http://localhost:3000/costs',
-        data: formData.info,
-      })
-        .then((response) => {
-          console.log(response)
-        }, (error) => console.log(error)
-        )
-        return alert("Dziękujemy za wypełnienie ankiety")
-    }
-
-  }
-
-
 
   return (
     <>
       <div>
         <h3>Rok rozpoczecia budowy {formData.info.year}</h3>
-
         <select
-          id="myData"
-          onClick={(e) => updateForm(e, yearInput)}
-          name={"year"}
-          ref={yearInput}
+          id="myData"  onClick={(e) => updateForm(e, yearInput)} name={"year"} ref={yearInput}
         >
           {year.map((item) => {
             return (
@@ -198,7 +159,7 @@ const CostForm = () => {
           ref={constructionCostInput}
         />
       </div>
-      <button onClick={() => { sendToDb() }}>Wyślij</button>
+      <button onClick={() => { if(checkForm(formData)) sendToDB(formData) }}>Wyślij</button>
     </>
   );
 };

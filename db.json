@@ -89,6 +89,15 @@
       "workOrderLevel": "75% - prac zostało zleconych",
       "houseArea": "2",
       "constructionCost": "20"
+    },
+    {
+      "id": "ksDDISK",
+      "year": "2005",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "200",
+      "constructionCost": "45000"
     }
   ]
 }
