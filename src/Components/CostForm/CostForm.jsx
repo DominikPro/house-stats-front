@@ -1,6 +1,10 @@
 import { React, useState, createRef } from "react";
-import checkForm from "../actions/checkForm";
-import sendToDB from "../actions/sendToDB";
+import checkForm from "../../actions/checkForm";
+import sendToDB from "../../actions/sendToDB";
+import upDateForm from "../../actions/upDateForm.js"
+import VoivodeshipInput from "../Shared/VoivodeshipInput"
+import YearInput from '../Shared/YearInput'
+ 
 import { year, voivodships, stateOfConstructionOptions, workOrderLevel } from "./dataForm";
 
 const CostForm = () => {
@@ -34,17 +38,17 @@ const CostForm = () => {
   const houseAreaInput = createRef();
   const constructionCostInput = createRef();
 
-  const updateForm = (e, ref) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      info: {
-        ...prevState.info,
+  // const upDateForm = (e, ref) => {
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     info: {
+  //       ...prevState.info,
 
-        [e.target.name]: ref.current.value,
-      },
-    }));
-    console.log(formData.info);
-  };
+  //       [e.target.name]: ref.current.value,
+  //     },
+  //   }));
+  //   console.log(formData.info);
+  // };
   const checkRadio = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -61,17 +65,7 @@ const CostForm = () => {
     <>
       <div>
         <h3>Rok rozpoczecia budowy {formData.info.year}</h3>
-        <select
-          id="myData"  onClick={(e) => updateForm(e, yearInput)} name={"year"} ref={yearInput}
-        >
-          {year.map((item) => {
-            return (
-              <option key={item.year} name={"year"} value={item}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
+        <YearInput setStateInParentComponent={setFormData}/>
       </div>
 
       <div>
@@ -79,21 +73,7 @@ const CostForm = () => {
           Województwo gdzie prowadzona jest inwestycja{" "}
           {formData.info.voivodeship}
         </h3>
-
-        <select
-          id="myList"
-          onClick={(e) => updateForm(e, voivodeshipInput)}
-          name={"voivodeship"}
-          ref={voivodeshipInput}
-        >
-          {voivodships.map((item) => {
-            return (
-              <option key={item.voivodeship} name={"voivodeship"} value={item}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
+        <VoivodeshipInput setStateInParentComponent={setFormData}/>
       </div>
 
       <div>
@@ -139,7 +119,7 @@ const CostForm = () => {
       <div>
         <h3>Całkowita powierzchnia domu - wraz z garażem i piwnicą</h3>
         <input
-          onChange={(e) => updateForm(e, houseAreaInput)}
+          onChange={(e) => upDateForm(e, houseAreaInput, setFormData)}
           type="number"
           step="1"
           placeholder="powierzchnia budynku"
@@ -151,7 +131,7 @@ const CostForm = () => {
       <div>
         <h3>Całkowity koszt budowy brutto</h3>
         <input
-          onChange={(e) => updateForm(e, constructionCostInput)}
+          onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
           type="number"
           step="1000"
           placeholder="kwota brutto"
