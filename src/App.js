@@ -1,7 +1,7 @@
 import React from 'react';
 import CostForm from "./Components/CostForm/CostForm"
 import Menu from "./Components/Menu/Menu"
-import Stats from "./Components/Stats/StatisticForm"
+import Stats from "./Components/StatisticForm/StatisticForm"
 import {
   BrowserRouter as Router,
   Switch,

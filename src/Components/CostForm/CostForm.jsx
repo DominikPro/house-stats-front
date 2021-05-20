@@ -38,17 +38,6 @@ const CostForm = () => {
   const houseAreaInput = createRef();
   const constructionCostInput = createRef();
 
-  // const upDateForm = (e, ref) => {
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     info: {
-  //       ...prevState.info,
-
-  //       [e.target.name]: ref.current.value,
-  //     },
-  //   }));
-  //   console.log(formData.info);
-  // };
   const checkRadio = (e) => {
     setFormData((prevState) => ({
       ...prevState,

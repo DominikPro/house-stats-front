@@ -1,14 +1,6 @@
 {
   "costs": [
-    {
-      "id": "",
-      "year": "",
-      "voivodeship": "",
-      "workStage": "",
-      "workOrderLevel": "",
-      "houseArea": 0,
-      "constructionCost": 0
-    },
+
     {
       "id": "dahMoiU",
       "year": "2006",
@@ -36,24 +28,7 @@
       "houseArea": "152",
       "constructionCost": "375000"
     },
-    {
-      "id": "g7NV234",
-      "year": "",
-      "voivodeship": "",
-      "workStage": "",
-      "workOrderLevel": "",
-      "houseArea": 0,
-      "constructionCost": 0
-    },
-    {
-      "id": "fnuSbbO",
-      "year": "",
-      "voivodeship": "",
-      "workStage": "",
-      "workOrderLevel": "",
-      "houseArea": 0,
-      "constructionCost": 0
-    },
+
     {
       "id": "IoXR3ks",
       "year": "",
@@ -62,15 +37,6 @@
       "workOrderLevel": "50% - prac zostało zleconych",
       "houseArea": "152",
       "constructionCost": "450000"
-    },
-    {
-      "id": "p-P6zgV",
-      "year": "",
-      "voivodeship": "",
-      "workStage": "",
-      "workOrderLevel": "",
-      "houseArea": 0,
-      "constructionCost": 0
     },
     {
       "id": "HcmvrmD",
