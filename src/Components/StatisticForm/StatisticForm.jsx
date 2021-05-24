@@ -1,9 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import VoivodeshipInput from "../Shared/VoivodeshipInput"
 import YearInput from '../Shared/YearInput'
 import getData from "../../actions/getData"
+import findData from "../../actions/findData"
+import { voivodships, year } from '../CostForm/dataForm'
 
 const  StatisticForm=()=> {
+    const [dataForStats, setDataForStats] = useState([])
+    const []=useState([])
 
     const  [statForm, setStatForm]= useState(
         {
@@ -14,7 +18,15 @@ const  StatisticForm=()=> {
             }
           }
     )
-    const [dataForStats, setDataForStats] = useState([])
+
+    useEffect(() => {
+        
+        return () => {
+            console.log("Siema")
+            // findData(year, voivodships, dataForStats)
+        };
+    }, [dataForStats])
+    
 
     return (
         <div>
@@ -23,6 +35,8 @@ const  StatisticForm=()=> {
             <VoivodeshipInput setStateInParentComponent={setStatForm}/>
             <h3>{`Wybrane wojewódtwo: ${statForm.info.voivodeship}`}</h3>        
             <button onClick={()=>{getData(setDataForStats)}}>Get data</button>   
+
+            <p>{findData(statForm.info.year, statForm.info.voivodeship, dataForStats)}</p>
         </div>
     )
 }
