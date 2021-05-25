@@ -1,6 +1,5 @@
 {
   "costs": [
-
     {
       "id": "dahMoiU",
       "year": "2006",
@@ -28,7 +27,6 @@
       "houseArea": "152",
       "constructionCost": "375000"
     },
-
     {
       "id": "IoXR3ks",
       "year": "",
@@ -64,6 +62,15 @@
       "workOrderLevel": "75% - prac zostało zleconych",
       "houseArea": "200",
       "constructionCost": "45000"
+    },
+    {
+      "id": "Lbkacyw",
+      "year": "2006",
+      "voivodeship": "Łódzkie",
+      "workStage": "DEW - stan deweloperski",
+      "workOrderLevel": "100% - prac wykonałem samodzielnie",
+      "houseArea": "120",
+      "constructionCost": "475000"
     }
   ]
 }

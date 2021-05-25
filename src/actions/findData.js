@@ -1,18 +1,15 @@
 const findData =(year, voivodeship, dataForStats)=>{
-    let filtredData = 0
+    let filtredDataForStatsGenerator = 0
 if(year !== "" || voivodeship !==""){
-  
-    filtredData = dataForStats.filter((item)=>{
-        console.log(item.year)
-        console.log(item.voivodeship)
-
+    filtredDataForStatsGenerator = dataForStats.filter((item)=>{
        return( 
        item.year === year &&
-       item.voivodeship === voivodeship)
-       
+       item.voivodeship === voivodeship)    
    })
 }
-console.log(filtredData)
+
+console.log(filtredDataForStatsGenerator)
+return filtredDataForStatsGenerator;
 }
 export default findData;
 
